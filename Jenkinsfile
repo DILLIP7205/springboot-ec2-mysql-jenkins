@@ -19,6 +19,19 @@ pipeline {
                 }
             }
         }
+        stage('build test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                success {
+                    echo "test success"
+                }
+                failure {
+                    echo "test failure"
+                }
+            }
+        }
         stage("Run the spring application") {
             steps { 
                 sh '''
