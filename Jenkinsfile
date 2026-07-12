@@ -35,7 +35,7 @@ pipeline {
         stage("Run the spring application") {
             steps { 
                 sh '''
-                    echo "Stoopping existing Spring Boot application if running..."
+                    echo "Stopping existing Spring Boot application if running..."
                     if pgrep -f spring_app_sak-0.0.1-SNAPSHOT.jar > /dev/null; then
                         sudo pkill -f spring_app_sak-0.0.1-SNAPSHOT.jar
                         echo "Application stopped."
